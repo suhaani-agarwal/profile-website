@@ -3,10 +3,12 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import { FaGithub, FaLinkedin, FaPlayCircle, FaDownload, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 
-const TypewriterText = ({ text }) => {
+
+const TypewriterText = ({ text = "" }) => {
   const words = text.split('');
   return (
     <motion.div className="inline-block">
@@ -29,7 +31,7 @@ const TypewriterText = ({ text }) => {
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('home');
-  const controls = useAnimation();
+  // const controls = useAnimation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,7 +53,7 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = (sectionId = "") => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -115,7 +117,8 @@ export default function Home() {
             whileHover={{ scale: 1.05 }}
             className="photo mb-8 rounded-full overflow-hidden size-72 border-4 border-indigo-500 shadow-[0_0_30px_rgba(99,102,241,0.3)]"
           >
-            <img src="/profile3.jpeg" alt="Suhaani Agarwal" className="w-full h-full object-cover" />
+            {/* <Img src="/profile3.jpeg" alt="Suhaani Agarwal" className="w-full h-full object-cover" /> */}
+            <Image src="/profile3.jpeg" alt="Suhaani Agarwal" width={100} height={100} className="w-full h-full object-cover" />
           </motion.div>
 
           {/* Social Icons with improved hover effects */}
@@ -342,8 +345,8 @@ export default function Home() {
           >
             <h2 className="text-4xl font-bold mb-4">Get In Touch</h2>
             <p className="text-gray-400 mb-12 max-w-xl">
-              I'm currently looking for new opportunities! Whether you have a question
-              or just want to say hi, I'll try my best to get back to you!
+              I am currently looking for new opportunities! Whether you have a question
+              or just want to say hi, I will try my best to get back to you!
             </p>
             
             <div className="grid md:grid-cols-2 gap-12">
