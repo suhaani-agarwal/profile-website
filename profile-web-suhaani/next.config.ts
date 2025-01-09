@@ -4,7 +4,10 @@ const nextConfig: NextConfig = {
   // basePath: "/profile-web-suhaani",
   output: "export",  // <=== enables static exports
   reactStrictMode: true,
-  distDir : 'app',
+  images: {
+    unoptimized: true, // If using images with static hosting
+  },
+  
   /* config options here */
 };
 
